@@ -1,0 +1,32 @@
+scalar Date @specifiedBy(url: "https://tools.ietf.org/html/rfc3339")
+
+scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122")
+
+type Genre {
+  id: UUID!
+  nom: String!
+}
+
+type SituationMatrimonial {
+  id: UUID!
+}
+
+type Candidat {
+  id: UUID!
+  nom: String!
+  prenom: String!
+  genre: Genre!
+  dateNaissance: Date!
+  email: String!
+  telephone: String!
+  situation: SituationMatrimonial!
+}
+
+type Service {
+    id: UUID!
+    nom: String!
+}
+
+type AnnonceService{
+    
+}
