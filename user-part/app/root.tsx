@@ -10,6 +10,7 @@ import {
   isRouteErrorResponse,
   useRouteError,
 } from "@remix-run/react";
+import Header from "./lib/components/Header";
 
 export const meta: MetaFunction = () => ([{
   charset: "utf-8",
@@ -46,6 +47,7 @@ export default function App() {
   return (
     <Document>
       <ChakraProvider>
+        <Header/>
         <Outlet />
       </ChakraProvider>
     </Document>
