@@ -1,5 +1,5 @@
 import { Button, useColorMode } from "@chakra-ui/react";
-import { FiSun, FiMoon } from "react-icons/fi"
+import { FiSun, FiMoon } from "react-icons/fi/index.js"
 
 export default function ColorModeToggleButton(){
     const { colorMode, toggleColorMode } = useColorMode();
