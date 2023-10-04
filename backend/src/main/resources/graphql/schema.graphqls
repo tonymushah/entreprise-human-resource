@@ -4,6 +4,8 @@ scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122")
 
 scalar Address
 
+scalar Email
+
 """
   TODO Types
 """
@@ -45,7 +47,7 @@ type Ecole {
   address: Address
 }
 
-type Specilite {
+type Specialite {
   id: UUID!
   name: String!
 }
@@ -54,7 +56,7 @@ type Diplome {
   id: UUID!
   origin: Ecole!
   diplomeType: DilplomeType!
-  specilite: Specilite
+  specilite: Specialite
   file: String!
 }
 
@@ -77,11 +79,12 @@ type Candidat {
   prenom: String!
   genre: Genre!
   dateNaissance: Date!
-  email: String!
+  email: Email!
   telephone: String!
   situation: SituationMatrimonial!
   diplomes(pagination: Pagination): [Diplome]!
   experience(pagination: Pagination): [Experience]!
+  enfants: Int
 }
 
 # [x] utilities for service critary

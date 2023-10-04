@@ -19,6 +19,7 @@ public class Experience {
     private Date start;
     private Date end;
     private String proof;
+    private UUID owner;
 
     public UUID getId() {
         return id;
@@ -71,19 +72,29 @@ public class Experience {
     public Experience() {
     }
 
-    public Experience(UUID originID, UUID genreID, Date start, Date end, String proof) {
+    public UUID getOwner() {
+        return owner;
+    }
+
+    public void setOwner(UUID owner) {
+        this.owner = owner;
+    }
+
+    public Experience(UUID originID, UUID genreID, Date start, Date end, String proof, UUID owner) {
         this.originID = originID;
         this.genreID = genreID;
         this.start = start;
         this.end = end;
         this.proof = proof;
+        this.owner = owner;
     }
 
-    public Experience(UUID originID, UUID genreID, Date start, String proof) {
+    public Experience(UUID originID, UUID genreID, Date start, String proof, UUID owner) {
         this.originID = originID;
         this.genreID = genreID;
         this.start = start;
         this.proof = proof;
+        this.owner = owner;
     }
 
 }

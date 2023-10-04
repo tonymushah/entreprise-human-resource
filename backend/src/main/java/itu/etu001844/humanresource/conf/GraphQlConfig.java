@@ -1,5 +1,7 @@
 package itu.etu001844.humanresource.conf;
 
+import java.util.regex.Pattern;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.graphql.execution.RuntimeWiringConfigurer;
@@ -16,6 +18,13 @@ public class GraphQlConfig {
                 .newAliasedScalar("Address")
                 .aliasedScalar(Scalars.GraphQLString)
                 .build();
-        return wiringBuilder -> wiringBuilder.scalar(ExtendedScalars.Date).scalar(ExtendedScalars.UUID).scalar(address);
+        GraphQLScalarType email = ExtendedScalars.newRegexScalar("Email")
+                .addPattern(Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE))
+                .build();
+        return wiringBuilder -> wiringBuilder
+                .scalar(ExtendedScalars.Date)
+                .scalar(ExtendedScalars.UUID)
+                .scalar(address)
+                .scalar(email);
     }
 }
