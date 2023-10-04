@@ -97,6 +97,7 @@ type ExpExigence{
   id: UUID!
   duration: Int
   type: ExperienceType
+  entreprise: Entreprise
 }
 
 type Critary {
