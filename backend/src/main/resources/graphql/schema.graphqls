@@ -31,6 +31,7 @@ type Experience {
   start: Date!
   end: Date
   proof: String!
+  owner: Candidat!
 }
 
 # [x] utilities for candidat Diplome
@@ -58,6 +59,7 @@ type Diplome {
   diplomeType: DilplomeType!
   specilite: Specialite
   file: String!
+  owner: Candidat!
 }
 
 # [x] utilities for candidat
@@ -166,4 +168,19 @@ type AnnonceService {
 input Pagination{
   offset: Int = 0
   limit: Int = 10
+}
+
+"""
+  TODO Querys
+"""
+
+type Query{
+  # [ ] EntrepriseController
+  entreprises(ids: [UUID!], pagination: Pagination): [Entreprise!]!
+  
+  # [ ] ExperinceController
+  experienceTypes(ids: [UUID!], pagination: Pagination): [ExperienceType!]!
+  
+  experiences(ids: [UUID!], pagination: Pagination): [Experience!]!
+  
 }

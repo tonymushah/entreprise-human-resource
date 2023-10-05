@@ -2,6 +2,15 @@ package itu.etu001844.humanresource.classes.candidat.diplome;
 
 import java.util.UUID;
 
+import itu.etu001844.humanresource.classes.candidat.Candidat;
+import itu.etu001844.humanresource.expections.notfounds.CandidatNotFoundException;
+import itu.etu001844.humanresource.expections.notfounds.DiplomeTypeNotFoundException;
+import itu.etu001844.humanresource.expections.notfounds.EcoleNotFoundException;
+import itu.etu001844.humanresource.expections.notfounds.SpecialiteNotFoundException;
+import itu.etu001844.humanresource.repositories.candidat.CandidatRepository;
+import itu.etu001844.humanresource.repositories.candidat.diplome.DiplomeTypeRepository;
+import itu.etu001844.humanresource.repositories.candidat.diplome.EcoleRepository;
+import itu.etu001844.humanresource.repositories.candidat.diplome.SpecialiteRepository;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +21,7 @@ public class Diplome {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    private UUID ownerID;
     private UUID originID;
     private UUID diplomeTypeID;
     private UUID speciliteID;
@@ -60,11 +70,35 @@ public class Diplome {
     public Diplome() {
     }
 
-    public Diplome(UUID originID, UUID diplomeTypeID, UUID speciliteID, String file) {
+    public Diplome(UUID ownerID, UUID originID, UUID diplomeTypeID, UUID speciliteID, String file) {
+        this.ownerID = ownerID;
         this.originID = originID;
         this.diplomeTypeID = diplomeTypeID;
         this.speciliteID = speciliteID;
         this.file = file;
     }
 
+    public Ecole getOrigin(EcoleRepository repository) throws EcoleNotFoundException{
+        return repository.findById(this.getOriginID()).orElseThrow(() -> new EcoleNotFoundException(this.getOriginID()));    
+    }
+
+    public DiplomeType getDiplomeType(DiplomeTypeRepository repository) throws DiplomeTypeNotFoundException {
+        return repository.findById(this.getDiplomeTypeID()).orElseThrow(() -> new DiplomeTypeNotFoundException(this.getDiplomeTypeID()));
+    }
+
+    public Specialite getSpecialite(SpecialiteRepository repository) throws SpecialiteNotFoundException{
+        return repository.findById(this.getSpeciliteID()).orElseThrow(() -> new SpecialiteNotFoundException(this.getSpeciliteID()));
+    }
+
+    public UUID getOwnerID() {
+        return ownerID;
+    }
+
+    public void setOwnerID(UUID ownerID) {
+        this.ownerID = ownerID;
+    }
+
+    public Candidat getOwner(CandidatRepository repository) throws CandidatNotFoundException{
+        return repository.findById(this.getOwnerID()).orElseThrow(() -> new CandidatNotFoundException(this.getOwnerID()));
+    }
 }

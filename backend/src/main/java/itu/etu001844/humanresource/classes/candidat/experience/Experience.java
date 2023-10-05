@@ -3,6 +3,13 @@ package itu.etu001844.humanresource.classes.candidat.experience;
 import java.util.Date;
 import java.util.UUID;
 
+import itu.etu001844.humanresource.classes.candidat.Candidat;
+import itu.etu001844.humanresource.expections.notfounds.CandidatNotFoundException;
+import itu.etu001844.humanresource.expections.notfounds.EntrepriseNotFoundException;
+import itu.etu001844.humanresource.expections.notfounds.ExperienceTypeNotFoundException;
+import itu.etu001844.humanresource.repositories.candidat.CandidatRepository;
+import itu.etu001844.humanresource.repositories.candidat.experience.EntrepriseRepository;
+import itu.etu001844.humanresource.repositories.candidat.experience.ExperienceTypeRepository;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -97,4 +104,15 @@ public class Experience {
         this.owner = owner;
     }
 
+    public Candidat getOwner(CandidatRepository repository) throws CandidatNotFoundException {
+        return repository.findById(this.getOwner()).orElseThrow(() -> new CandidatNotFoundException(this.getOwner()));
+    }
+
+    public ExperienceType getType(ExperienceTypeRepository repository) throws ExperienceTypeNotFoundException{
+        return repository.findById(this.getGenreID()).orElseThrow(() -> new ExperienceTypeNotFoundException(this.getGenreID()));
+    }
+
+    public Entreprise getOrigin(EntrepriseRepository repository) throws EntrepriseNotFoundException{
+        return repository.findById(this.getOriginID()).orElseThrow(() -> new EntrepriseNotFoundException(this.getOriginID()));
+    }
 }
