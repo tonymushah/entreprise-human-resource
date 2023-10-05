@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes;
+package itu.etu001844.humanresource.classes.service;
 
 import java.util.UUID;
 
@@ -8,14 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class SituationMatrimonial {
+public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String name;
-
-    protected SituationMatrimonial() {
-    }
+    private String nom;
 
     public UUID getId() {
         return id;
@@ -25,15 +22,19 @@ public class SituationMatrimonial {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public SituationMatrimonial(String name) {
-        this.name = name;
+    public Service(String nom) {
+        this.nom = nom;
     }
+
+    public Service() {
+    }
+
 }

@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes;
+package itu.etu001844.humanresource.classes.candidat.experience;
 
 import java.util.Date;
 import java.util.UUID;

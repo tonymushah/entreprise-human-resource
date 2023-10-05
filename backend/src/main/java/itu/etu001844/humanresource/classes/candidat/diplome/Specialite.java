@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes;
+package itu.etu001844.humanresource.classes.candidat.diplome;
 
 import java.util.UUID;
 

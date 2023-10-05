@@ -131,10 +131,11 @@ type Candidature{
 
 type AnnonceService {
   id: UUID!
+  title: String
   limitDate: Date!
   addDate: Date!
   service: Service!
-  questions: [Question!]!
+  critary: Critary!
   candidatures(pagination: Pagination): [Candidature!]!
 }
 

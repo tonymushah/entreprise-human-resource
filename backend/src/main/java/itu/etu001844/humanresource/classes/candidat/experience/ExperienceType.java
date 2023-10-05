@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes;
+package itu.etu001844.humanresource.classes.candidat.experience;
 
 import java.util.UUID;
 
@@ -8,33 +8,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Genre {
+public class ExperienceType {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String nom;
-
+    private String name;
+    protected ExperienceType() {
+    }
     public UUID getId() {
         return id;
     }
-
     public void setId(UUID id) {
         this.id = id;
     }
-
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public Genre() {
+    public ExperienceType(String name) {
+        this.name = name;
     }
-
-    public Genre(String nom) {
-        this.nom = nom;
-    }
-
 }

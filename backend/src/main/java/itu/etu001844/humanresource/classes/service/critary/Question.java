@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes;
+package itu.etu001844.humanresource.classes.service.critary;
 
 import java.util.UUID;
 
@@ -13,6 +13,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String question;
+    private UUID critaryID;
 
     public UUID getId() {
         return id;
@@ -33,8 +34,19 @@ public class Question {
     public Question() {
     }
 
-    public Question(String question) {
-        this.question = question;
+    public UUID getCritaryID() {
+        return critaryID;
     }
+
+    public void setCritaryID(UUID critaryID) {
+        this.critaryID = critaryID;
+    }
+
+    public Question(String question, UUID critaryID) {
+        this.question = question;
+        this.critaryID = critaryID;
+    }
+
+    
 
 }

@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes;
+package itu.etu001844.humanresource.classes.service.critary;
 
 import java.util.UUID;
 
@@ -8,26 +8,33 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class ExperienceType {
+public class Critary {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String name;
-    protected ExperienceType() {
-    }
+    private UUID annonceID;
+
     public UUID getId() {
         return id;
     }
+
     public void setId(UUID id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+
+    public UUID getAnnonceID() {
+        return annonceID;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setAnnonceID(UUID annonceID) {
+        this.annonceID = annonceID;
     }
-    public ExperienceType(String name) {
-        this.name = name;
+
+    public Critary(UUID annonceID) {
+        this.annonceID = annonceID;
     }
+
+    public Critary() {
+    }
+
 }

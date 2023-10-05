@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes;
+package itu.etu001844.humanresource.classes.candidat.personalInfo;
 
 import java.util.UUID;
 
@@ -8,14 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class DiplomeType {
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String name;
-
-    protected DiplomeType() {
-    }
+    private String nom;
 
     public UUID getId() {
         return id;
@@ -25,16 +22,19 @@ public class DiplomeType {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public DiplomeType(String name) {
-        this.name = name;
+    public Genre() {
+    }
+
+    public Genre(String nom) {
+        this.nom = nom;
     }
 
 }
