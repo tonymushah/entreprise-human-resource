@@ -103,11 +103,31 @@ type ExpExigence{
   entreprise: Entreprise
 }
 
+enum CompType{
+  LESS
+  MORE
+  EQUAL
+  NOT
+}
+
+enum CompStrategy{
+  AND
+  OR
+}
+
+type AgeCritary{
+  id: UUID!
+  birthday: Date!
+  compType: CompType!
+  strategy: CompStrategy!
+}
+
 type Critary {
   id: UUID!
   genre: [Genre!]
   situationMatri: [SituationMatrimonial!]!
   questions: [Question!]!
+  ageCritary: [AgeCritary!]!
 }
 
 ## [x] actual service himself 

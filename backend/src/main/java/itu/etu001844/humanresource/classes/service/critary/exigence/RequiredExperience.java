@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes.service.critary;
+package itu.etu001844.humanresource.classes.service.critary.exigence;
 
 import java.util.Optional;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package itu.etu001844.humanresource.classes.service.critary;
+package itu.etu001844.humanresource.classes.service.critary.question;
 
 import java.util.UUID;
 
@@ -8,11 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class SituationMatriExigence {
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private UUID situationMatriID;
+    private String question;
     private UUID critaryID;
 
     public UUID getId() {
@@ -23,12 +23,15 @@ public class SituationMatriExigence {
         this.id = id;
     }
 
-    public UUID getSituationMatriID() {
-        return situationMatriID;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setSituationMatriID(UUID situationMatriID) {
-        this.situationMatriID = situationMatriID;
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public Question() {
     }
 
     public UUID getCritaryID() {
@@ -39,12 +42,11 @@ public class SituationMatriExigence {
         this.critaryID = critaryID;
     }
 
-    public SituationMatriExigence() {
-    }
-
-    public SituationMatriExigence(UUID situationMatriID, UUID critaryID) {
-        this.situationMatriID = situationMatriID;
+    public Question(String question, UUID critaryID) {
+        this.question = question;
         this.critaryID = critaryID;
     }
+
+    
 
 }
